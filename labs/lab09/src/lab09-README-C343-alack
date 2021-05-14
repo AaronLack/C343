@@ -1,0 +1,19 @@
+Aaron Lack alack C343 FA20 Lab 9 README File
+
+In your plain-text README file, let us know what that "maximum working key" integer value is for your
+implementation; also, you need to explain how you found that "maximum working key" integer value, above which
+your implementation stops working.
+
+My maximum working key should be 100, because I set the length of my intermediate array to size 100. For my
+program to work, I made a randomize array method that fills values from 0-100. The maximum working key does
+not work when I have a value greater than 100. I made a fail randomize array that fills up the array of values
+0-300. A value greater than 100 means the length of the intermediate array will have to be larger than 100,
+which causes an error in my program because I have the length of the intermediate array to 100. Since a value
+greater than 100 requires more space in the intermediate array, my program crashes stating it is an index out
+of bounds error for length 100, which is what we wanted.
+
+I implemented the counting sort method based on the instructions in the given lab task, which I left in my
+class. I also implemented a couple of randomize array methods and a find max element for testing purposes in
+my main method. I have 5 working test cases, plus a 6th test case that fails on purpose. I have detailed
+comments for what each line does, so I am keeping my descriptions for how I solved this problem vague in this
+README.

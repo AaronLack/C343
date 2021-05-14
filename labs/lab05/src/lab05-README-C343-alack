@@ -1,0 +1,9 @@
+I went to lab office hours and got help from Brendan, and we noticed the root for the BST is 1. This is odd because
+following the bst properties, all of the child nodes will be placed to the right, never to the left of
+the root. This  makes this tree more like a linked-list or array, which is ironic considering this is a lab about binary
+ search trees. Nevertheless, I have all of my methods running and Brendan said my logic is sound for my implementations
+ for the lab tasks.
+
+Here are some resources I used to help me code and understand Task C to find the kth smallest element in a BST:
+https://www.youtube.com/watch?v=KqMm81Y7j9M
+https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/#:~:text=Since%20we%20need%20the%20K,root%20is%20K%2Dth%20node.

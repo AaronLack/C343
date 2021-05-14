@@ -1,0 +1,19 @@
+Aaron Lack alack C343 FA20 Lab 11 README
+
+Describe your solution to Floyd's Algorithm here
+
+I first instantiated a matrix[][] instance variable to hold all of the vertices in the adjacency matrix for
+the algorithm. I set it to the size of the totalNodes. Then I wrote a for loop calling the NumberOfEdges
+method and setting it to the maxValue. I did the same thing but for 0, in the case where a node cannot be
+connected to itself, as given in the pseudocode. The next for loop was to get all of the values in the
+Adjacency List and setting it to one if there is a connection. Then, I wrote the main part of floyds
+algorithm, with the three for loops. I check to make sure that matrix[i][k] != 9999999 && matrix[k][j] != 9999999
+so that we could properly execute and set matrix[i][j] = matrix[i][k] + matrix[k][j]. I make sure to make a
+NumberOfEdges method that sets the matrix of [i][j] to the number of edges given. Finally, I called a method
+called displayConnections, which is a helper method that loops through the matrix and displays all of the
+connections. If it was equal to the max value, I put no connections, otherwise I displayed the number of
+connections plus the number from Matrix[i][j]. I then put 3 new graphs in the main method, set up 5 verticies
+and 7 edges, and called the display and floyds algorithm methods for my final result. One note I want to make
+is I was having a lot of issues and values that didn't make sense when I used the Integer.Max_Value number, so
+ I used 9999999 instead as a large enough number. I went to office hours and Peter said this was fine since we
+  didn't understand why Integer.Max_Value was outputting us negative connections.

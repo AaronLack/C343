@@ -1,0 +1,26 @@
+Aaron Lack alack C343 FA20 Lab X
+
+Grade replacement PLEASE READ: Tentatively, I would like this Lab X to replace my quiz 01 score, which I got a
+ 50/90 on it. However, there is still a lot of labs that have not been graded, and I would like my lowest
+ score to be replaced. Thanks.
+
+The locations.txt file has 2 characters in first line: 7 locations, 6 roads (7 vertices, 6 edges)
+The next lines have 4 characters: locationA, locationB, distance, direction
+
+Output: integer of calculated longest distance between location pairs
+On a separate line, ordered list of locations that will be used for race route.
+
+Describe how you implemented your program here:
+
+I used a very similiar algorithm to dijstra's, but I had to change a lot of the helper methods to get the
+longest path. First, I made a getWeights2 method, which does the same thing as the getWeights original method,
+ but in the else statement I am returning 0 instead of infinity. My minVertex method is flipped to a maxVertex
+ method, where I flipped the inequality in the second if statement to greater than. I also flipped the
+ inequality in the relaxation method, so that I can get the largest weights. My logic was that by flipping all
+  of the inequalities, I would get very large numbers in the Dist array to find the longest path. I
+  reinitialize my dist array just like in dijstras, but this time I set all of the values to -1 and the
+  starting node to 0. This is to properly compare the max values and paths on the edges. I loop through all of
+   the nodes, and if a node is 0, then its not reachable. Otherwise, I set vertex v to maxVertex and call
+   setVisited. I then do the modified edge relaxation enhanced for loop. Finally, I loop through the dist
+   array and look for the max value, and I set it and print it as longestPath.
+   In main, I read the file by line and I make the graph based on the values given in locations.txt.

@@ -1,0 +1,15 @@
+Aaron Lack alack C343 FA20 Lab 12
+
+Describe how you implemented your code here:
+I re-used a lot of code from PS11 in this lab, including the minVertex() and all of my tests in main. My
+relaxation method is also very similar, but this time instead of taking in a third parameter w, I call the
+getWeight() of u and v instead and compare that with dist[v] Initializing the problem is also very similar,
+where I make the dist array and fill it up with the Integer.MAX_VALUE except for the starting node (which is a
+ string) 0. The new part of prims algorithm is I make a priority queue to store all the nodes, and I write a
+ simple for loop to fill all the totalNodes in the priority queue. In my main loop, I write while the priority
+  queue isn't empty, I use the poll() for vertex u, which takes the top element in the priority queue. I then
+  remove it, based on the pseudocode. I set vertex v to the minVertex() method, and call the setVistied() on v
+  . I reuse an enhanced for loop to iterate through all the neighbors of v and call the edge relaxation
+  method, which updates all the values in the dist array. I then print the new dist array, which in this
+  algorithm represents the MST for the undirected graph. Finally, I update the cost, which is the total cost
+  of all of the edges in the MST and I print that total cost out.

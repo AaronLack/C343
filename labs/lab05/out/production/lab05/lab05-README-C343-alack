@@ -1,0 +1,11 @@
+I went to lab office hours and got help from Brendan, however we couldn't figure why not all the values in
+the Integer[] ks were being built from the tree. The values 3,5,7, and 9 are missing. This lead to the preOrder and
+InOrder methods returning the same path, even though they should be different. My guess is the way this starter code was
+ set up, since one is the root, this really isn't a good example of a binary search tree, since all the elemtents are
+ larger than one, so only rigth nodes are created, making this almost like an array. Nevertheless, I have all of my
+ methods running and Brendan said my logic is sound for my implementations for the lab tasks.
+
+
+Here are some resources I used to help me code and understand Task C to find the kth smallest element in a BST:
+https://www.youtube.com/watch?v=KqMm81Y7j9M
+https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/#:~:text=Since%20we%20need%20the%20K,root%20is%20K%2Dth%20node.
