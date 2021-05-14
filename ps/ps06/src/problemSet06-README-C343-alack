@@ -1,0 +1,109 @@
+Aaron Lack; Problem Set 6 README File
+Describe how you designed and implemented your Java classes for Problem Set 06.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Part A:
+Assume you work on a file with a collection of very biased DNA sequences--there are a lot more As and Ts than
+Cs and Gs in the sequences (A: 50%, T: 35%, C: 10% and G: 5%). Assume that a Huffman coding is used to
+compress the file: a Huffman Code Tree will be built for the given distribution of A, T, C and G, and the
+Huffman codes will be used to encode the DNA sequences.
+What is the compression ratio you can achieve (compression ratio = uncompressed-size/compressed-size)?
+Explain your calculation briefly, showing the encoding table that you obtain from a Huffman Coding Tree.
+Hint: fixed-length codes of 2 bits are sufficient for encoding four letters; you need to use this information
+to calculate the uncompressed size.
+
+I worked through the book example and followed the same process below.
+Based on the book, I first use this equation: c1p1 + c2p2 + ... cnpn.
+There are 4 possible characters: A,G,T, and C
+Log base 2 of 4 is 2 bits.
+But the average cost of letters A-Z according to shaffer is 4.29 bits
+So, the ratio is 2/4.29. See all of my math below
+
+4.29(.5) + 4.29(.35) + 4.29(.1)+ 4.29(.05) = 4.29
+4 characters.
+Log2(4) = 2
+1 - (2/4.29) *100 = 53.38%
+Huffman coding saves about 53.38% of letters.
+
+Here is the huffman codes and trees I came up with. I did the best I could to make it clear as possible
+Numbers in "" are the nodes (circles), 0 and 1 are the edges, and numbers without quotes that are directly
+below a corresponding letter are the frequencies (boxes).
+
+                                    "100"
+                                  0       1
+                                50         "50"
+                                 A        0     1
+                                       "45"        "5"
+                                      0    1          1
+                                     35      10         5
+                                      T       C         G
+Huffman Code Table:
+A: 0     Cost: 1 bit
+T: 100   Cost: 3 bits
+C: 101   Cost: 3 bits
+G: 111   Cost: 3 bits
+
+Compresed Code Table: All have a cost of 2 bits
+A: 00
+T: 01
+C: 10
+G: 11
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Part B:
+Write down your explanation about how the Huffman Tree is built in the provided HuffTree.java class, in your
+plain-text README file.
+
+The Huffman Tree is built from the buildTree(), which is called in the constructor of HuffTree and
+instantiated as an object in the main method of this class. The buildTree() method calls MinHeap class, which
+is the data structure used to order the huffman tree. Then, the go left and go right methods are called
+followed by insert node to build the tree.
+
+I used this website to help me with the decode method:
+http://users.cis.fiu.edu/~shawg/syl/BJ4-Old/ch17/worked_example_1/HuffmanTree.java
+I used this website to help me with he buildCodeTable method:
+https://github.com/HarryRybacki/Huffman-Tree-Project/blob/master/huffmanproject.java
+
+
+I figured out how to do the the buildCode by making a codeHelper function. I take in a binNode and a String
+and I first check if a node is  and return nothing. If a node is a leaf, I make a string variable called
+letter and I store it in the codeTable instance variable. Then, recur on the left subtree and I add a 0 to the
+string for the code. I do the same to the right, but add one and I also use a substring method to readjust the
+path for the tree. I then call the helper method in the buildCode method to get the correct table.
+
+In the decode method, I loop through the input strings length and I compare the values of the coded message
+using a char variable. If 0, go left, if 1, go right. Then if its a leaf, I am update the outStr variable to
+get the value of the current node and I reset currentNode to the root until the for loop finishes and message
+is decoded. I finally return the string.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Part C:
+Flatland.txt is the first link, page 97
+Flatland2.txt is the second link, page 201 with the ascii illustrations.
+Change text files to western(ASCII) in BBEdit.
+
+I solved this problem by using the code implementation for the reading assigned on edit distance. I copied and
+pasted the DNA methods and hammingDistance method from PS01 to this file. I had to redo my hammingDistance
+since it was incorrect earlier. Insead of splitting the strings, I needed to use the charAt to get a more
+accurate number and still had a counter and returned that integer. I made seperate methods for the runtime in
+nanoseconds for both edit and hamming distance, which is code I resused from the previous problem set.
+For the error method, I played with the bounds to see when I would get an error by starting at 4 and
+doubling that each time. I called nextDNA method from PS01 to make the DNA strands and caled the hamming and
+edit distance methods. Finally in main, I called all of my methods and I did typical try/catch and File
+reading instantiation to read Flatland and Flatland2.
+
+5. Runntime error:
+The smallest value I put in to get a heap space error is when i < 35000. I believe this is happening because
+every iteration of the loop, the value doubles, which is increasingly costing time, space, and memory. At a
+certain point, which I found to be 35000, there is not enough space or time to effectively compute the
+algorithm, leading to the OutOfMemoryError.
+
+6. Times:
+After 3 separate trials, here are the runtimes for Edit and Hamming Distance:
+Edit: 14449686, 21479710, 12086432
+Hamming: 144103, 99068, 168453
+It is clear that hamming distance takes much less time then edit distance. This makes sense, because the
+algorithm for edit distance is more involved and complex then hamming distance.

@@ -1,0 +1,49 @@
+Aaron Lack alack Problem Set 10 README C343 FA20
+
+Part A: Show DFS Tree
+What I did was I started at the root E and traversed the graph in a way such that I could visit every node
+without visiting a vertex twice. So, I started at E, labeled it 1. I went to F, labled it 2. From F, my only
+option is C, so I labeled that 3. From C, I went to A, labeled it 4. From A, I can only visit B, so I labeled
+that 5. And finally, I went to D since this is the last unvisited node, and labeled it 6. This is just one
+example of paths you can do from C.
+
+There are many other solutions to this problem, I listed them in list format as well
+
+E --> F --> C --> A --> B --> D
+E --> C --> F --> A --> B --> D
+E --> D --> B --> A --> C --> F
+E --> D --> B --> C --> A --> F
+E --> D --> B --> A --> F --> C
+
+Part B:
+If storage requirements are as follows:
+a pointer requires four bytes of storage,
+a vertex label requires two bytes,
+and an edge presence/absence requires one byte (ignore edge weights and their memory requirements for now)
+which representation requires more space for the graph at Task A: the adjacency matrix or the adjacency list?
+
+Theta(|V| + |E|) space complexity for list, V^2 for matrix
+Adjacency List: 6(2) * 72 = 864 Bytes
+Adjacency Matrix: 6^2 verticies * 2 = 72 bytes * 72 = 5184 bytes
+Pointers: (A: 3*4 = 12 + B: 3*4 = 12 + C: 4*4 = 16 + D: 2*4 = 8 + E: 4*3 = 12 + F: 4*3 = 12) = 72
+So, the adjacency list is more efficient than the adjacency matrix.
+
+Part C:
+If storage requirements are as follows:
+a pointer requires two bytes of storage,
+and a vertex label requires one byte,
+and an edge presence/absence requires one byte (ignore edge weights and their memory requirements for now)
+which representation requires more space for the graph at Task A: the adjacency matrix or the adjacency list?
+
+Theta(|V| + |E|) space complexity for list, V^2 for matrix
+Adjacency List: 6(1) * 36 = 216 Bytes
+Adjacency Matrix: 6^2 verticies * 1 = 36 bytes * 36 = 1296 bytes
+Pointers: (A: 3*2 = 6 + B: 3*2 = 6 + C: 4*2 = 8 + D: 2*2 = 4 + E: 3*2 = 6 + F: 4*2 = 6) = 36
+So, the adjacency list is more efficient than the adjacency matrix.
+
+Part D: I have detailed comments of what each line does, but I basically made some counter variables to keep
+track of the components and the visited nodes. I looped through the nodeList and checked if they weren't
+visited. If they weren't, I called the DFS method to traverse the graph. I then looped trough the nodeList
+again and had a condition checking if a vertex was visited. I update the count variables and have a print
+statement at the end of the method containing the number of components and nodes. My main method I created 3
+different graphs with 10 vertecies and had different edge connections.

@@ -1,0 +1,39 @@
+Problem Set 7 README C343 Fall 2020 Aaron Lack, alack
+Take a screenshot of your graphical output.
+Describe how you designed and implemented your Java classes for Problem Set 07.
+
+I made my problem set model class from re-using a lot of code from PS06 and PS05. I made the d and e arrays
+global and made height and width instance variables, just like last time. Created a constructor to pass in the
+width and height. My distance function stayed relatively the same, except I added comparisons for the
+insertion, deletion, substitution, or nothing happening in the final for loop of the function. I extend the
+observable class so I can notify my observers and return the min, and still get an edit distance of 6, just
+like last problem set. My dLine and eLine methods I just return the distance function call of aString() and
+bString(). aString() and bString() are just reading in the files, from my main function in the last problem
+set.
+
+My View class is different then my last problem set, partially because I messed it up last time. I extend
+jComponent and implement actionEvent, and I put all of the necessary jFrame commands in the constructor. I
+call this.repaint() in my actionEvent method, and set the background to white in the paintComponent method. My
+draw point will do all of the work, I write multiple if statements to truncate rgb values that could be >255
+or <0. I instantiate a graphics object and fill in a rectangle of size 1,1 to draw one point at a time. My
+clear method is very similar to PS05, where I fill the whole background of color(127,127,127). Finally,
+I make static arrays vowels and consonants to be used in boolean methods to check if the character in the
+string is either a vowel or a consonant.
+
+My Controller class is also more involved then last time. I instantiate a width, height, model, and view
+objects and pass them into the controller constructor. I make sure to extend JFrame and implement actionevent
+and observer, since I am painting some more and overidding the update method in this class. The
+actionperformed and paintcomponent methods are the same as my view class. My update method does all of the
+work. I first iterate through the aString() length and assign the corresponding colors to spaces, vowels, and
+consonants, and special characters. I repeat this process for bString(). Then, I iterate through the e[][]
+and assign corresponding values based on the insertion, deletion, substitution or no cost outcomes. I follow
+similar logic for the d[][]. Finally in my main method, I make a new controller object and call it with the
+dist method from the model class.
+
+My graphical output (at the moment) is just a blank white screen, even though my logic and code seems sound.
+
+I want to note that I have been waiting in office hours for this assignment on Tuesday from 10:45-11:30am,
+3-4pm, and 6-730pm and have was not gotten to for asking questions about this assignment. This is very
+concerning to me, because I really struggled in this problem set I feel I could have gotten a much better
+grade if an someone help me for no more than 10 minutes. I just wanted to bring this to the AI's and Mitja's
+attention because I think a lot of people feel the same way as well.

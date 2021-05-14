@@ -1,0 +1,70 @@
+Aaron Lack alack C343 FA20 PS12 Problem 5
+
+Given this AVL tree: 
+
+					  41
+				    /     \
+				   20	   65
+				  /  \     /  
+				11    29  50 
+				     /
+				    26     
+1. Inserting 23
+
+					  41
+				    /     \
+				   20	   65
+				  /  \     /  
+				11    29  50 
+				     /
+				    26
+				   /
+				  23 
+	
+This makes the tree unbalanced, so we are going to have to do a right rotation. We move 26 to be the root of the subtree, and 23 will fall to the left of 26, and 29 will fall to the right of 26. This makes the tree balanced, as see below. 
+		  
+				  	   41
+				    /     \
+				   20	   65
+				  /  \     /  
+				11    26  50 
+				     /  \
+				    23   29
+	
+This tree is now balanced. 
+			    
+2. Insert 55
+
+				  	   41
+				    /     \
+				   20	   65
+				  /  \     /  
+				11    26  50 
+				     /  \   \
+				    23   29	 55
+				    
+This is also unbalanced, because the subtree where 65 is the root node has a left subtree balance greater than 1 compared to the right subtree. This will require a Left-Right rotation, where first, you swap 55 and 50, and the 50 will be a left child of 55 to fulfill the BST property. Then, you will do a right rotation, where you swap 55 to be the root of the new subtree, 50 will be a left child of 55, and 65 will be a right child of 55. After this, the tree fulfills the AVL invariant, and it is balanced. See steps below. 
+
+First, rotate left
+
+				  	    41
+				    /        \
+				   20	        65
+				  /  \         /  
+				11    26      55 
+				     /  \     /
+				    23   29	50   	
+				    
+				    
+Next, rotate right			    
+				  	     41
+				     /        \
+				   20	        55
+				  /  \         /   \
+				11    26      50    65 
+				     /  \     
+				    23   29	  	    
+
+This tree is now balanced. 
+				  
+				  

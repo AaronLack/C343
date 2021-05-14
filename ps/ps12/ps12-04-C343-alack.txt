@@ -1,0 +1,44 @@
+Aaron Lack alack C343 FA20 PS12 Problem 4
+
+					  7
+				    /    \
+				   4	  42
+				 /  \    /   \
+				3   6   8      55
+					     \    /  \
+						  32 54   64
+1. Insert 9 
+
+					  7
+				    /    \
+				   4	  42
+				 /  \    /   \
+				3   6   8      55
+					     \    /  \
+						  32 54   64
+						  /
+						 9
+						 
+This tree is unbalanced, and to fix you are going to have to do a right-left rotation. First, swap the 9 and the 32, and 32 will now be a right child of 9 to fulfill the BST property. Then, rotate left such that the 9 is the new root of the subtree, where 8 is the left child and 32 is the right child. This leads us to a balanced AVL tree. 
+
+	 				   7
+				    /    \
+				   4	  42
+				 /  \    /   \
+				3   6   8      55
+					     \    /  \
+						  9 54   64
+						   \
+						    32
+
+Then rotate left						 
+	 				   7
+				    /    \
+				   4	  42
+				 /  \    /   \
+				3   6   9      55
+					   / \    /  \
+					  8  32  54   64
+
+This tree is now balanced, which means it is an AVL tree
+

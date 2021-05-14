@@ -1,0 +1,15 @@
+Aaron Lack alack Problem Set 08 C343 FA20
+
+I used this link as a guide to help me with this problem set: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+I first read the problem on wikipedia, watched a youtube video on it (https://www.youtube
+.com/watch?v=xCbYmUPvc2Q) to understand the problem. From the videos, I noticed we had to take care of base
+cases with the length of the array (the subset being empty) and the sum being 0. Otherwise, I recursively
+called the function to reduce the size of the array by 1 or that on top of reducing the size of the subset by
+1 We can do this because if the first/last element won't work to get the kSum, then we can discard that value.
+ The dynamic programming works the same way, but we are using for loops instead of recursion. I use a 2d array
+  boolean data structure that stores n +1 (the subset) and kSum + 1. I then iterate through n to check to make
+   sure it isn't empty and kSum to make sure it isn't 0 and return the appropriate booleans for those edge
+   cases. The nested for loops are for iterating through n and ksum and checking with the current sum values
+   given a subset. I return the dynamicProgramming 2D array, which is a boolean. In my main method, I make 3
+   arrays, and I call both the recursive and dynamic programming methods with values I know that should be
+   true and values that should be false.

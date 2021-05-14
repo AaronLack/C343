@@ -1,0 +1,141 @@
+Aaron Lack alack C343 FA20
+
+Input Array: [73,57,0,47,8,9]
+
+Tree Visualization:
+
+			73
+		  /	   \
+		57		0
+	   /  \    /
+	 47    8  9
+
+You work bottom up for swaping elements in binary tree, and replace those positions in
+the given array. 
+
+Step 1: Swap 0 and 9: in tree and in array to fulfill max heap property
+
+Array: [73,57,9,47,8,0]
+
+			73
+		  /	   \
+		57		9
+	   /  \    /
+	 47    8  0
+
+	
+Step 2: Extraction phase: pop the root node, and add it to the end of the array
+Swap elements at first and last position of array. 
+73 is done, so I will remove the / from the tree. 
+
+
+Array: [0,57,9,47,8,73]
+
+
+			0
+		  /	  \
+		57	   9
+	   /  \    
+	 47    8  73
+
+Repeat this process of fixing the tree to fulfill the max heap property, and add largest item
+at the root to the array. 
+
+Swap 0 and 57
+Array: [57,0,9,47,8,73]
+
+
+			57
+		  /	  \
+		 0	   9
+	   /  \    
+	 47    8  73
+	 
+	 
+Swap 0 and 47
+Array: [57,47,9,0,8,73]	 
+	 
+			57
+		  /	  \
+		47	   9
+	   /  \    
+	  0    8  73 
+	  
+Now that this is a max heap, extract 57. So swap 57 with 8
+
+Array: [8,47,9,0,57,73]	
+
+			8
+		  /	  \
+		47	   9
+	   /      
+	  0    57  73 
+
+57 is in the correct spot so I will remove the \ from the tree	  
+Swap 8 and 47 to fix max heap property. 
+	
+Array: [47,8,9,0,57,73]	
+
+			47
+		  /	   \
+		8	    9
+	   /      
+	  0    57  73 
+	  
+Extract 47 from the root by swaping it with the last element, which is 0
+
+Array: [0,8,9,47,57,73]
+
+			0
+		  /	   \
+		8	    9
+	         
+	  47    57  73 	
+47 is in the correct position, so remove the /.
+Swap 8 and 0 to fix max heap property
+
+Array: [8,0,9,47,57,73]
+
+			8
+		  /	   \
+		0	    9
+	         
+	  47    57  73 	
+	  
+Swap 8 and 9 to fulfill max heap property 
+
+Array: [9,0,8,47,57,73]
+
+ 			9
+		  /	   \
+		0	    8
+	         
+	  47    57  73 	
+	  
+Extract 9 from the root from lowest child. Remove the \ from 9 in the tree
+(Which happens to be 8. Kind of a redundant process, but I wanted to show full max heap 
+property stuff for full points).
+
+Array: [8,0,9,47,57,73]
+
+ 			0
+		  /	   
+		8	    9
+	         
+	  47    57  73
+
+This tree fulfills max heap property, so extract 8 and swap with 0. Remove the / from 8
+
+Array: [0,8,9,47,57,73]
+
+ 			0
+		  	   
+		8	    9
+	         
+	  47    57  73
+
+Finally, extract 0 from tree. As you can see the array is now sorted. 
+
+Final Output Array: Array: [0,8,9,47,57,73]
+ 
+	 
