@@ -1,0 +1,96 @@
+Problem 1: This is the following properties of Java I have from the getProperty problem:
+
+java.vm.version is 14.0.1+7
+java.vm.vendor is Oracle Corporation
+java.vm.name is Java HotSpot(TM) 64-Bit Server VM
+java.vm.specification.version is 14
+java.vm.specification.vendor is Oracle Corporation
+java.vm.specification.name is Java Virtual Machine Specification
+java.version is 14.0.1
+java.vendor is Oracle Corporation
+
+Problem 2: Made students and printed out some tests.
+Here is the output of all the students from a for loop:
+
+Student{name='Aaron', major='Informatics', StudentID=504064}
+Student{name='Adeel', major='Computer Science', StudentID=504069}
+Student{name='Erik', major='Math', StudentID=405784}
+Student{name='Taylor', major='Healthcare Management and Policy', StudentID=678123}
+Student{name='Ellie', major='Political Science', StudentID=555555}
+
+Problem 3:
+I had to create a package in the src folder because I kept getting errors from line one in Mitja's given code.
+In GitHub, it is in the edu/indiana/cs/c343 in the src folder. Sorry for the inconvienece.
+Example Sequence:
+DNA sequence 1: CCGGGTGATCCTTAAGGGCAGCATCTAAGTTTACCTGACTCTTGCACCCGGGTTCAATTCATTGTTCCCTGTGCAGCCGCCATAGGAGTCTTATACAATA
+DNA sequence 2: GAGTCATCCGGTTGGAGGGTAAATGATCCAACAAGAGGCATTAATCTACTAGGCTGCCAGCCACTTGTAGCAACCGCCCACTCGGAGCAGTGCTGACCTG
+Hamming Distance: 18
+
+Problem 4: Calculate Big Theta
+1.
+a = b + c;
+d = a + e;
+
+Big Theta: Θ(1), because n is not present, these values are always constant.
+
+2.
+sum = 0;
+for (i=0; i<3; i++)
+    for (j=0; j<n; j++)
+        sum++;
+
+Big Theta: Θ(n): Because of j<n, it will run n times and in the
+outer for loop, it will run 3 times regardless of what n is, but we can remove the 3 in asymptotic analysis.
+
+3.
+sum=0;
+for (i=0; i<n*n; i++)
+    sum++;
+
+Big Theta: Θ(n^2) Because of the i<n*n, n*n = n*2
+
+4.
+for (i=0; i < n-1; i++)
+    for (j=i+1; j < n; j++) {
+        tmp = AA[i][j];
+        AA[i][j] = AA[j][i];
+        AA[j][i] = tmp;
+    }
+
+Big Theta: Θ(n^2), it would be Θ(n^2-n) but we can discard the n because it is a lower constant than n^2.
+
+5.
+sum = 0;
+for (i=1; i<=n; i++) n
+    for (j=1; j<=n; j*=2) n/2
+        sum++;
+Big Theta: Θ(n^2), double for loop with n as a condition, and n*n = n^2 for the largest term.
+
+
+6.
+sum = 0;
+for (i=1; i<=n; i*=2) n/2
+    for (j=1; j<=n; j++) n
+        sum++;
+
+Big Theta: Θ(n^2), double for loop with n as a condition, and n*n = n^2 for the largest term.
+Even though this is slightly different then 5, the structure of the for loops are the same.
+
+7. Assume that array A contains n values, random() takes constant time, and sort() takes (n log n) steps:
+for (i=0; i<n; i++) {
+    for (j=0; j<n; j++)
+        A[j] = DSutil.random(n);
+    sort(A);
+}
+
+n log n + 1 + n + n = Big Theta: Θ(n log n), because n log n > n, and the sorting algorithm
+has the highest constant.
+
+Assume that array A contains a random permutation of the values from 0 to (n - 1) in this case:
+sum = 0;
+for (i=0; i<n; i++)
+    for (j=0; A[j]!=i; j++)
+        sum++;
+
+Big Theta: Θ(n) because n is the largest term in the first for loop and the second one is a
+range of 0 to n-1, and n is larger than n-1.

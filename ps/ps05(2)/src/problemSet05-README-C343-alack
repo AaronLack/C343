@@ -1,0 +1,56 @@
+Aaron Lack PS05 README
+I had problems with intelleJ and Github with this problem set, so I had to make a folder called ps05(2) to work around
+these errors. Sorry for the inconvienence.
+
+Make notes about sortArray1 and sortArray2's running times and differences here.
+Also explain how you solved this problem
+
+PS05 Model: I'll be honest, I really struggled in this problem set, mainly because I made things way more complicated
+than need be. To start, getArray() and randomize were pretty easy since this is something we already did in problem set
+two. I conceptually had a hard time understanding heapsort, so I used insertion sort instead and used this link to help
+me implement that sorting method: https://www.geeksforgeeks.org/insertion-sort/
+For the sort rows and columns, all you had to do is one simple for loop and call insertion sort with the length of the
+matrix and width/height respectively. Then, the runtimes code is given to us, and you take the difference and run it in
+main to figure that out. For this lab, I was getting a lot of index out of bounds erros, but this was fixed by simply
+setting the width and height equal to each other, I hope that is acceptable.
+
+PS05 View: I moved all of my jFrame/jComponent stuff into the constructor and set up an action listener. The clear
+method was simple, all you had to do set the size of the rectangle to black. For the draw point, it was multiple if
+conditions based on the value of the array and you set them to the appropriate color. I also had to make new colors
+based on the RGB values for the faded green and red.
+
+PS05 Controller: This is the class where you make an update funtion and you make view and model objects. You also
+attach a controller object to the methods you want to call in the main. I HIGHLY RECOMMEND commenting out and testing
+each method seperately so your computer doesn't crash with multiple methods running at once.
+
+
+1. Is the 2D array guaranteed to be "fully sorted" after calling sortArray1()?
+If yes, how can you show that it always gets fully sorted? If not, why not?
+
+No, because the columns are being sorted first and sometimes sorting columns means that the rows won't be sorted, so the
+ array won't be fully sorted.
+
+2. Is the 2D array guaranteed to be "fully sorted" after calling sortArray2()?
+If yes, how can you show that it always gets fully sorted? If not, why not?
+
+Yes, because the rows are being sorted first and this will yield a fully sorted array at all times.
+
+3. What are the asymptotic complexities of sortArray1() and sortArray2()?
+
+The time complexities for both SortArray1() and SortArray2() is O(n^2) because I am using insertion sort for this
+problem set, and we went over in quite a bit of detail why insertion sort takes n^2 time. This is the fastest growing
+term in the methods, and we can ignore constants, so O(n^2)
+
+4. What is the actual running time of your sortArray1() and sortArray2() methods?
+To answer this question, you will need to time your two methods, for example thus:
+
+After running my code 3 seperate times, here are my time results for the two methods:
+Run Time of SortArray1: 5494001, 6728811, 6345229
+Run Time of SortArray2 5114877, 6152144, 5619487
+Differences (SortArray1-SortArray2): 379124, 576667, 725742
+
+5. If the running times of sortArray1() and sortArray2() differ substantially, provide your
+explanation about what may cause that difference in running times.
+
+In all three cases, the SortArray2 method takes less time than the SortArray1 method. I have their differences also
+displayed, and it's clear that sorting the rows before sorting the columns is more efficient.

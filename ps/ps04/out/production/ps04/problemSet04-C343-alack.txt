@@ -1,0 +1,27 @@
+Problem Set 4 C343 README
+A few notes about Task A
+I made an instance of Int2DArray and changed Mitja's starter code to pass in int[][] because that is how I implemented
+that class in problem set 2.
+I made some new methods: paint(), which given the rgb values assigns colors to that pixel based on the random numnber
+generated.
+display() to actually display the matrix.
+randomArray() to fill the array up with random values, complimented with getRandomArray() to get the max and minvalues
+in java.
+Then in main, I call displayMatrix and and randomArrayMatrix with the Jframe code.
+I got the matrix to show up, but since ware using the Java Max and Min values, the numbers ares super large and small
+that generate, and the screen looks like a QR code since it is mostly black and white pixels.
+
+A few notes about B:
+With tree problems that I have done in the past, you need a helper function to do recursion on the actual function
+because that is the most efficient way to implement them.
+I use the compareTo method with the actual root value in the tree, if > 0 go right, < 0 go left because this follows the
+patterns and rules of a binary tree.
+I return true as an else statement and return false to satisfy the function, then call the helper function in the find
+method.
+In main, I construct a tree, see the comments of what I drew and I attach them to the nodes and set the values left and
+right so that they are in order and the find method will return true. I also added some false cases on purpose to show
+why it wouldn't work.
+
+
+
+
